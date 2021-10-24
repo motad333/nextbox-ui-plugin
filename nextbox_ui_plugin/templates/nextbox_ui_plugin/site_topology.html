@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 
 <!DOCTYPE html>
 
@@ -16,8 +16,8 @@
             <div class="row">
               <div class="col-xs-4">
                 <div class="btn-group">
-                    <button class="btn btn-outline-secondary btn-sm " onclick='horizontal()'>Horizontal Layout</button>
-                    <button class="btn btn-outline-secondary btn-sm" onclick="vertical()">Vertical Layout</button>
+                    <button class="btn btn-outline-secondary btn-sm " onclick='horizontal()'>{% trans 'Horizontal Layout' %}</button>
+                    <button class="btn btn-outline-secondary btn-sm" onclick="vertical()">{% trans 'Vertical Layout' %}</button>
                 </div>
               </div>
               <div class="col-xs-4 ml-2">
@@ -29,10 +29,10 @@
               <div class="col-xs-4 ml-2">
                 <div class="dropdown">
                     <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Select Layers
+                      {% trans 'Select Layers' %}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <h6 class="dropdown-header">Device Roles</h6>
+                        <h6 class="dropdown-header">{% trans 'Device Roles' %}</h6>
                         <div class="dropdown-divider"></div>
                         {% for device_role_slug, device_role_name, is_visible in device_roles %}
                             <div class="checkbox ml-1 my-1">
