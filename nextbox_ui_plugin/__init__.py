@@ -11,7 +11,6 @@ class NextBoxUIConfig(PluginConfig):
     base_url = 'nextbox-ui'
     required_settings = []
     default_settings = {}
-    middleware = ['django.middleware.locale.LocaleMiddleware', ],
     caching_config = {
         '*': None
     }
