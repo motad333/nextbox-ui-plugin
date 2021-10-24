@@ -22,13 +22,13 @@
 
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="topology-tab" data-bs-toggle="tab" data-bs-target="#topology" type="button" role="tab" aria-controls="topology" aria-selected="true">
-          Topology
+          {% trans 'Topology' %}
         </button>
       </li>
 
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="filters-form-tab" data-bs-toggle="tab" data-bs-target="#filters-form" type="button" role="tab" aria-controls="filters-form" aria-selected="false">
-            Filters
+            {% trans 'Filters' %}
           </button>
         </li>
 
@@ -41,8 +41,8 @@
         <div>
 
             <div class="btn-group">
-                <button class="btn btn-primary " onclick='horizontal()'>Horizontal Layout</button>
-                <button class="btn btn-primary" onclick="vertical()">Vertical Layout</button>
+                <button class="btn btn-primary " onclick='horizontal()'>{% trans 'Horizontal Layout' %}</button>
+                <button class="btn btn-primary" onclick="vertical()">{% trans 'Vertical Layout' %}</button>
             </div>
 
             <input class="btn btn-primary" type="button" id="showHideUndonnectedButton" value="" onclick="return showHideUndonnectedButtonOnClick(this);" />
@@ -51,10 +51,10 @@
             <div class="btn-group">
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Select Layers
+                        {% trans 'Select Layers' %}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <h6 class="dropdown-header">Device Roles</h6>
+                        <h6 class="dropdown-header">{% trans 'Device Roles' %}</h6>
                         <div class="dropdown-divider"></div>
 
                         {% for device_role_slug, device_role_name, is_visible in device_roles %}
@@ -67,7 +67,7 @@
 
                         <div class="dropdown-divider"></div>
                         {% if device_tags %}
-                            <h6 class="dropdown-header">Device Tags</h6>
+                            <h6 class="dropdown-header">{% trans 'Device Tags' %}</h6>
                             {% for tag, is_visible in device_tags %}
                                 <div class="checkbox ml-1 my-1">
                                     <label>
@@ -83,10 +83,10 @@
             <div class="btn-group">
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Save Current View
+                        {% trans 'Save Current View' %}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <h6 class="dropdown-header">Saved View Name:</h6>
+                        <h6 class="dropdown-header">{% trans 'Saved View Name' %}:</h6>
                         <div style="margin-bottom: 5px; margin-left: 2px; margin-right: 2px;">
                             <input type="text" id="topoSaveName" name="topoSaveName"></input>
                         </div>
@@ -99,7 +99,7 @@
             </div>
             <div class="btn-group">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Load Saved View
+                    {% trans 'Load Saved View' %}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <form action="." method="get" class="form">

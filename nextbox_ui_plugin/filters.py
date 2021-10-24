@@ -10,6 +10,7 @@ if NETBOX_CURRENT_VERSION >= version.parse("2.11.0"):
 else:
     from dcim.models import RackGroup as Location
 
+from django.utils.translation import gettext_lazy as _
 
 class TopologyFilterSet(django_filters.FilterSet):
 
@@ -17,20 +18,20 @@ class TopologyFilterSet(django_filters.FilterSet):
         queryset=Device.objects.all(),
         to_field_name='id',
         field_name='id',
-        label='Device (ID)',
+        label=_('Device (ID)'),
     )
     location_id = django_filters.ModelMultipleChoiceFilter(
         queryset=Location.objects.all(),
-        label='Location (ID)',
+        label=_('Location (ID)'),
     )
     site_id = django_filters.ModelMultipleChoiceFilter(
         queryset=Site.objects.all(),
-        label='Site (ID)',
+        label=_('Site (ID)'),
     )
     region_id = django_filters.ModelMultipleChoiceFilter(
         queryset=Region.objects.all(),
         field_name='site__region',
-        label='Region (ID)',
+        label=_('Region (ID)'),
     )
 
     class Meta:

@@ -1,5 +1,5 @@
 from extras.plugins import PluginMenuItem
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 menu_items = (
     PluginMenuItem(

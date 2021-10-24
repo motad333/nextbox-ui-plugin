@@ -1,14 +1,15 @@
+from dcim.models import Device, Site, Region
 from django import forms
+from django.conf import settings
 from ipam.models import VLAN
+from packaging import version
 from utilities.forms import (
     BootstrapMixin,
     DynamicModelMultipleChoiceField,
     DynamicModelChoiceField
 )
+
 from .models import SavedTopology
-from dcim.models import Device, Site, Region
-from django.conf import settings
-from packaging import version
 
 NETBOX_CURRENT_VERSION = version.parse(settings.VERSION)
 
@@ -17,12 +18,11 @@ if NETBOX_CURRENT_VERSION >= version.parse("2.11.0"):
 else:
     from dcim.models import RackGroup as Location
 
-if NETBOX_CURRENT_VERSION >= version.parse("3.0") :
-    from django.utils.translation import gettext as _
+if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
+    from django.utils.translation import gettext_lazy as _
 
 
 class TopologyFilterForm(BootstrapMixin, forms.Form):
-
     model = Device
 
     device_id = DynamicModelMultipleChoiceField(
@@ -55,7 +55,7 @@ class TopologyFilterForm(BootstrapMixin, forms.Form):
         to_field_name='id',
         null_option='None',
     )
-    if NETBOX_CURRENT_VERSION >= version.parse("3.0") :
+    if NETBOX_CURRENT_VERSION >= version.parse("3.0"):
         device_id.label = _('Devices')
         location_id.label = _('Location')
         site_id.label = _('Sites')

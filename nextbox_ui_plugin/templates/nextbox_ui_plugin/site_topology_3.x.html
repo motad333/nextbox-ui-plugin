@@ -13,17 +13,17 @@
         <div class="container-sm ml-4 my-sm-3" id="nx-ui-topology">
             <div class="control-group">
               <div class="btn-group">
-                  <button class="btn btn-primary btn-sm " onclick='horizontal()'>Horizontal Layout</button>
-                  <button class="btn btn-primary btn-sm" onclick="vertical()">Vertical Layout</button>
+                  <button class="btn btn-primary btn-sm " onclick='horizontal()'>{% trans 'Horizontal Layout' %}</button>
+                  <button class="btn btn-primary btn-sm" onclick="vertical()">{% trans 'Vertical Layout' %}</button>
               </div>
               <input class="btn btn-primary btn-sm" type="button" id="showHideUndonnectedButton" value="" onclick="return showHideUndonnectedButtonOnClick(this);" />
               <input class="btn btn-primary btn-sm" type="button" id="showHidePassiveDevicesButton" value="" onclick="return showHidePassiveDevicesButtonOnClick(this);" />
               <div class="dropdown btn-group">
                   <button class="btn btn-primary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Layers
+                    {% trans 'Select Layers' %}
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <h6 class="dropdown-header">Device Roles</h6>
+                      <h6 class="dropdown-header">{% trans 'Device Roles' %}</h6>
                       <div class="dropdown-divider"></div>
                       {% for device_role_slug, device_role_name, is_visible in device_roles %}
                           <div class="checkbox ml-1 my-1">
@@ -34,7 +34,7 @@
                       {% endfor %}
                       <div class="dropdown-divider"></div>
                       {% if device_tags %}
-                        <h6 class="dropdown-header">Device Tags</h6>
+                        <h6 class="dropdown-header">{% 'Device Tags' %}</h6>
                         {% for tag, is_visible in device_tags %}
                             <div class="checkbox ml-1 my-1">
                                 <label>
